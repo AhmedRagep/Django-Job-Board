@@ -16,20 +16,23 @@ class Job(models.Model):
     vacancy = models.IntegerField(default=1)
     salery = models.IntegerField(default=0)
     exprince = models.IntegerField(default=1)
+    category = models.ForeignKey("Category",on_delete=models.CASCADE, null=True)
 
-    '''
-    location
-    part type
-    descriptions
-    puplished at
-    Vacancy
-    Salary
-    category
-    exprince
-    '''
     class Meta:
         verbose_name = ("Job")
         verbose_name_plural = ("Jobs")
 
     def __str__(self):
         return self.title
+
+class Category(models.Model):
+    name = models.CharField(max_length=50)
+    
+
+    class Meta:
+        verbose_name = ("Category")
+        verbose_name_plural = ("Categorys")
+
+    def __str__(self):
+        return self.name
+
