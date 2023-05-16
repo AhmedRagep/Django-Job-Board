@@ -1,0 +1,211 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap5 %}
+{% block body %}
+
+    <main>
+        <div class="main">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8">
+                <div class="single-post">
+                  <div style="text-align: center;">
+                    <h1>Job <span class="green">Detail</span></h1>
+                  </div>
+                  
+                  <h2>{{job_detail.title}}</h2>
+                  <div class="post-meta text-muted">
+                    <span><i class="far fa-user"></i> Posted by: {{job_detail.author}}</span><span><i class="far fa-calendar"></i> {{job_detail.published_at|date:'d M Y' }}</span><span><i class="fa-solid fa-lock-open"></i>Vacancy: {{job_detail.vacancy}} Position</span><span><i class="far fa-solid fa-clock"></i>Job Type: {{job_detail.job_type}}</span>
+                    <span><i class="fa-money-bill"></i> Salary: {{job_detail.salery}}</span><span><i class="far fa-calendar"></i>Exprince: {{job_detail.exprince }} Year</span>
+                    <!-- <i class="fa-solid fa-money-bill"></i> -->
+                  </div>
+                  <div class="post-contant">
+                    <div class="post-img"><img src="{{job_detail.img.url}}" alt=""></div>
+                    <h3>Description</h3>
+                    <p>{{job_detail.description}}</p>
+                    
+                    <!-- <ul class="list-in-text">
+                      <li>Lorem ipsum dolor sit amet consectetur.</li>
+                      <li>Lorem ipsum dolor sit amet consectetur.</li>
+                      <li>Lorem ipsum dolor sit amet consectetur.</li>
+                      <li>Lorem ipsum dolor sit amet consectetur.</li>
+                      <li>Lorem ipsum dolor sit amet consectetur.</li>
+                    </ul> -->
+                    
+                    <!-- <figure class="quote text-start">
+                      <blockquote class="blockquote">
+                        <p>A well-known quote, contained in a blockquote element.</p>
+                      </blockquote>
+                      <figcaption class="blockquote-footer">
+                        Someone famous in <cite title="Source Title">Source Title</cite>
+                      </figcaption>
+                    </figure> -->
+                    
+                    <div class="share">
+                      <a class="main-btn" href=""><i class="fab fa-facebook-f"></i> FACEBOOK</a>
+                      <a  class="main-btn" href=""> <i class="fab fa-google-plus-g"></i> GOOGLE+</a>
+                      <a  class="main-btn" href=""><i class="fab fa-linkedin-in"></i> LINKEDIN</a>
+                      <a  class="main-btn" href=""><i class="fab fa-pinterest-p"></i> PINTEREST</a>
+                    </div>
+                    <div class="navigation">
+                      <a class="prew"><i class="fas fa-chevron-left"></i> PREVIOUS</a>
+                      <a class="next">NEXT <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                    <div class="line"></div>
+
+                    <hr> 
+                      <div class="mb-3" style="text-align: center;">
+                        <h2>Apply For The Job</h2>
+                      </div>
+
+                    <form id="commentForm" method="POST" enctype="multipart/form-data">
+                      {% csrf_token %}
+                      {% bootstrap_form form %}
+                      {% buttons %}
+                      <div class="d-grid">
+                        <button class="main-btn" id="submitButton" type="submit">Apply Now</button>
+                      </div>
+                      {% endbuttons %}
+                    </form>
+                  </div>
+                  
+                </div>
+              </div>
+              <div class="sidebar col-lg-4">
+                <div class="input-group">
+                  <div class="form-outline">
+                    <input id="search-input" type="search" id="form1" class="form-control" placeholder="search" />
+                  </div>
+                  <button id="search-button" type="button" class="btn dark">
+                    <i class="fas fa-search"></i>
+                  </button>
+                </div>
+
+                <div class="search-by-sidebar mt-5" style="text-align: center;">
+                  <h3>Search by <span class="green">Filter</span></h3>
+                  <!-- <a href="">All category <img style="width: 20px; margin-left: 20px;" src="{% static '/img/icon/arrow-right-icon.svg' %} " alt=""></a> -->
+        
+                    <!--Start carousel-->
+                    <div class="col-lg-15 text-center">
+                      <div class="sidebar-wrap bg-light ftco-animate">
+                        <h3 class="heading mb-4">Find City</h3>
+                        <form action="#">
+                          <div class="fields">
+                            <div class="form-group">
+                              <input type="text" class="form-control" placeholder="Destination, City">
+                            </div>
+                            <div class="form-group">
+                              <div class="select-wrap one-third">
+                                <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                <select name="" id="" class="form-control" placeholder="Keyword search">
+                                  <option value="">Select Location</option>
+                                  <option value="">San Francisco USA</option>
+                                  <option value="">Berlin Germany</option>
+                                  <option value="">Lodon United Kingdom</option>
+                                  <option value="">Paris Italy</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <input type="text" id="checkin_date" class="form-control" placeholder="Date from">
+                            </div>
+                            <div class="form-group">
+                              <input type="text" id="checkin_date" class="form-control" placeholder="Date to">
+                            </div>
+                            <div class="form-group">
+                              <div class="range-slider">
+                                <span>
+                                  <input type="number" value="25000" min="0" max="120000"/>	-
+                                  <input type="number" value="50000" min="0" max="120000"/>
+                                </span>
+                                <input value="1000" min="0" max="120000" step="500" type="range"/>
+                                <input value="50000" min="0" max="120000" step="500" type="range"/>
+                                </svg>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <input type="submit" value="Search" class="btn btn-primary py-3 px-5">
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                          <!-- <div class="carousel-item active"> 
+                            <div class="card-item">
+                              <div class="photo">
+                                <img class="main-state" src="img/icon/business-development.svg" alt="">
+                                <img class="hover" src="img/icon/business-development-hover.svg" alt="">
+                              </div>
+                              <p>Business<br>
+                                Development</p>
+                            </div> 
+        
+                            <div class="card-item">
+                              <div class="photo">
+                                <img class="main-state" src="img/icon/graphic.svg" alt="">
+                                <img class="hover" src="img/icon/graphic-hover.svg" alt="">
+                              </div>
+                              <p>Graphic<br>
+                                Designer</p>
+                            </div>
+        
+                          </div>
+        
+                          <div class="carousel-item">
+                            <div class="card-item">
+                              <div class="photo">
+                                <img class="main-state" src="img/icon/pm.svg" alt="">
+                                <img class="hover" src="img/icon/pm-hover.svg" alt="">
+                              </div>
+                              <p>Project<br>
+                                Management</p>
+                            </div>
+        
+                            <div class="card-item">
+                              <div class="photo">
+                                <img class="main-state"src="img/icon/marketing.svg" alt="">
+                                <img class="hover" src="img/icon/marketing-active.svg" alt="">
+                              </div>
+                              <p>Marketing &<br>
+                                Communication</p>
+                            </div>
+        
+                          </div>
+                       </div>
+                       <div class="carousel-nav">
+                        <a class="nav-item" role="button" data-bs-target="#carouselsidebar" data-bs-slide="prev"><img src="{% static 'img/icon/prew-arrow.svg' %} " alt=""></a>
+                        <a class="nav-item" role="button" data-bs-target="#carouselsidebar" data-bs-slide="next"><img src="{% static 'img/icon/next-arrow.svg' %} " alt=""></a>
+                       </div>-->
+                    </div>
+        
+                </div>
+                <hr>
+                <div class="recent-posts my-5">
+                  <div style="text-align: center;">
+                    <h4>Recent <span class="green">Jobs</span></h4>
+                    <hr>
+                  </div>
+                  {% for jobs in job_list %}
+                    <div style="text-align: center;">
+                      <div class="post-item">
+                        <a href="{% url 'jobs:job_detail' jobs.slug %}" class="post-title">{{jobs.title}}</a>
+                        <div class="company-logo" style="width: 100px; text-align: center;">
+                          <a href="{% url 'jobs:job_detail' jobs.slug %}"><img src="{{jobs.svg.url}}" alt=""></a>
+                        </div>
+                        <div class="post-meta">
+                          <span><i class="far fa-user"></i> Posted by {{jobs.author}}</span><span><i class="far fa-calendar"></i> {{job_detail.published_at|date:'d M Y' }}</span><span><i class="far fa-comment-alt"></i> 0 comments</span>
+                        </div>
+                        <p class="post-content">{{jobs.description}}</p>
+                      </div>
+                    </div>
+                  {% endfor %}
+                  <div style="text-align: center;">
+                   <a href="{% url 'jobs:job_list' %}">View All Jobs <img style="width: 20px; margin-left: 20px;" src="/img/icon/arrow-right-icon.svg" alt=""></a>
+                  </div>
+              </div>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+    </main>
+    {% endblock body %}

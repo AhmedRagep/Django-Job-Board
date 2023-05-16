@@ -20,13 +20,17 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('accounts.urls'), name='accounts'),
     path('admin/', admin.site.urls),
     path('jobs/', include('job.urls'), name='jobs'),
     path('home/', include('home.urls'), name='home'),
     path('contact/', include('contact.urls'), name='contact'),
     path('blog/', include('blog.urls'), name='blog'),
-    path('accounts/', include('accounts.urls'), name='accounts'),
-]
 
-urlpatterns +=  static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-urlpatterns +=  static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('api-auth/', include('rest_framework.urls')),
+    
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# urlpatterns +=  static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+# urlpatterns +=  static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

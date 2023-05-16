@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+{% load bootstrap5 %}
+
+{% block content %}
+    <div style="text-align: center;">
+      <h1><span class="green">SignUp</span></h1>
+    </div>
+      <form method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons %}
+          <div class="d-grid">
+            <button class="main-btn" id="submitButton" type="submit">SignUp</button>
+          </div>
+        {% endbuttons %}
+      </form>
+    {# Assumes you setup the password_reset view in your URLconf #}
+{% endblock %}

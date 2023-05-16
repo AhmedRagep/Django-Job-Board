@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap5 %}
+{% block body %}
+
+    <main>
+        <div class="main">
+          <div class="container">
+            <!-- <div class="row"> -->
+              <div class="col-lg-8 mx-auto">
+                <div class="single-post">
+                  
+                  <div class="post-contant">
+                    {% block content %}
+                        
+                    {% endblock content %}
+                  </div>
+                  
+                </div>
+              </div>
+              
+          </div>
+        </div>
+    </main>
+    {% endblock body %}

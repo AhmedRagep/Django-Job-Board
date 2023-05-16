@@ -1,0 +1,18 @@
+.top {
+    margin-top: 150px;
+}
+
+.navahmed {
+    display: inline-block;
+    width: 120px;
+}
+
+imgprofile {
+    border-radius: 50%;
+    width: 400px;  /*  العرض مساوي للطول */
+    height: 400px; /*  العرض مساوي للطول */
+}
+
+.center {
+    text-align: center;
+}

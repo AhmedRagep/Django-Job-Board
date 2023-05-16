@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap5 %}
+{% block body %}
+
+    <main>
+        <div class="main">
+          <div class="container">
+            
+              <div class="col-lg-8 mx-auto">
+                <div class="single-post">
+                  <div style="text-align: center;">
+                    <h1>Edit <span class="green">Profile</span></h1>
+                  </div>
+                  <div class="post-contant">
+                    
+
+                    <hr> 
+                      <!-- <div class="mb-3" style="text-align: center;">
+                        <h2>Edit Profile</h2>
+                      </div> -->
+
+                    <form id="commentForm" method="POST" enctype="multipart/form-data">
+                      {% csrf_token %}
+                      {% bootstrap_form userform %}
+                      {% bootstrap_form profileform %}
+                      {% buttons %}
+                      <div class="d-grid">
+                        <button class="main-btn" id="submitButton" type="submit">Edit</button>
+                      </div>
+                      {% endbuttons %}
+                    </form>
+                  </div>
+                  
+                </div>
+              </div>
+              <!-- <div class="sidebar col-lg-4">
+                
+                <div class="recent-posts my-5">
+                  <div style="text-align: center;">
+                    <h4>Recent <span class="green">Jobs</span></h4>
+                  </div>
+                  {% for jobs in job_list %}
+                  <div style="text-align: center;">
+                    <div class="post-item">
+                      <a href="{% url 'jobs:job_detail' jobs.slug %}" class="post-title">{{jobs.title}}</a>
+                      <div class="company-logo" style="width: 100px;">
+                        <a href="{% url 'jobs:job_detail' jobs.slug %}"><img src="{{jobs.svg.url}}" alt=""></a>
+                      </div>
+                      <div class="post-meta">
+                        <span><i class="far fa-user"></i> Posted by {{jobs.author}}</span><span><i class="far fa-calendar"></i> {{job_detail.published_at|date:'d M Y' }}</span><span><i class="far fa-comment-alt"></i> 0 comments</span>
+                      </div>
+                      <p class="post-content">{{jobs.description}}</p>
+                    </div>
+                  </div>
+                  {% endfor %}
+                  <div style="text-align: center;">
+                    <a href="{% url 'jobs:job_list' %}">View All Jobs <img style="width: 20px; margin-left: 20px;" src="/img/icon/arrow-right-icon.svg" alt=""></a>
+                  </div>
+              </div>
+              
+              </div> -->
+            
+          </div>
+        </div>
+    </main>
+    {% endblock body %}
